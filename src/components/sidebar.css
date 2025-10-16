@@ -86,3 +86,7 @@
   display: inline-block;
   vertical-align: middle;
 }
+
+body {
+  margin: 0;
+}

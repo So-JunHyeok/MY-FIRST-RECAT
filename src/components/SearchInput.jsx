@@ -1,21 +1,23 @@
-function SearchInput({ query, setQuery, onSearch }){
+
+function SearchInput({ query, setQuery, onSearch, isInitial }){
     return(
         <div className="content-wrapper">
-          <h2>안녕하세요. 00님 무엇을 도와드릴까요?</h2>
+      {/* ✅ 초기 화면일 때만 인사 문구 표시 */}
+      {isInitial && <h2>안녕하세요. 무엇을 도와드릴까요?</h2>}
+          <div className="input-row">
           <input
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="무엇이든 물어보세요"
             className="main-input"
+            onKeyDown={(e) => e.key === "Enter" && onSearch()}
           />
-          <div className="btn-group">
-            <button>시작일자</button>
-            <button>종료일자</button>
-            <button>지역명</button>
-            <button className="accent" onClick={onSearch}>기상개요</button>
-          </div>
+          <button className="send-btn" onClick={onSearch}>
+          <img src="up-icon.png" alt="전송" />
+          </button>
         </div>
+      </div>
         );
 }
 export default SearchInput

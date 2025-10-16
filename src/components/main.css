@@ -29,7 +29,7 @@
 .main-content {
   flex: 0.95; /* ✅ 전체 높이의 95% */
   background-color: #f7f9ff;
-  padding: 50px;
+  padding: 10px;
   box-sizing: border-box;
   overflow-y: auto;
 }
@@ -76,13 +76,13 @@
 }
 
 .main-input {
-  width: 500px;
+  width: 800px;
   height: 50px;
   border: 1px solid #aaa;
   border-radius: 4px;
-  text-align: center;
   margin-bottom: 20px;
   font-size: 16px;
+  padding: 0 55px 0 20px;     /* 오른쪽 버튼 공간 확보 */
 }
 
 .btn-group {
@@ -159,4 +159,143 @@
 
 .search-result button:hover {
   background-color: #357ABD;
+}
+
+.input-row {
+  position: relative;         /* ✅ 버튼을 인풋 안에 겹치게 배치 */
+  width: 700px;
+  display: flex;
+  align-items: center;
+}
+
+/* 버튼 (입력창 안쪽 오른쪽 끝) */
+.send-btn {
+  position: absolute;
+  right: 10px;
+  top: 37%;
+  transform: translateY(-50%);
+  width: 25.9px;
+  height: 25.5px;
+  border: none;
+  border-radius: 50%;
+  background-color: #000;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.send-btn img {
+  width: 26px;
+  height: 26px;
+  filter: invert(1);
+}
+
+.send-btn:hover {
+  background-color: #243b86;
+}
+
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+}
+
+.chat-list {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px 170px;
+  box-sizing: border-box;
+}
+
+/* 메시지 공통 */
+.chat-block {
+  display: flex;
+  flex-direction: column;
+  max-width: 1240px;
+  /*margin: 0 auto;*/
+}
+
+.chat-label {
+  font-size: 13px;
+  color: #777;
+  margin-bottom: 4px;
+}
+
+/* 사용자 메시지 */
+.user-block .chat-message {
+  background: #ffffff;
+  border: 1px solid #ddd;
+  padding: 14px 18px;
+  border-radius: 10px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+.bot-block .chat-message {
+  /*background: #f3f3f3;
+  border: 1px solid #e2e2e2;
+  */
+  padding: 14px 18px;
+  border-radius: 10px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+/* 코드블록 */
+.chat-message pre {
+  background: #1e1e1e;
+  color: #fff;
+  padding: 10px;
+  border-radius: 6px;
+  overflow-x: auto;
+}
+
+/* 하단 입력창 영역 */
+.chat-input-area {
+  border-top: 1px solid #ddd;
+  background: #f7f9ff;
+  padding: 16px 16px 10px 40px;
+  position: sticky;
+  bottom: 0;
+}
+
+/* 사용자(You) 메시지 - 오른쪽 정렬 */
+.user-block {
+  align-items: flex-end; /* ✅ 오른쪽 정렬 */
+}
+
+/** 마크다운 **/
+
+/* ✅ 마크다운 표 스타일 */
+.markdown-body table {
+  width: auto;
+  border-collapse: collapse;
+  margin: 12px 0;
+  font-size: 15px;
+}
+
+.markdown-body th,
+.markdown-body td {
+  border: 1px solid #ccc; /* ✅ 표 테두리 */
+  padding: 6px 12px;
+  text-align: center;
+}
+
+.markdown-body th {
+  background-color: #f5f7fa;
+  font-weight: 600;
+}
+
+.markdown-body tr:nth-child(even) {
+  background-color: #fafafa; /* 줄 구분 */
+}
+
+.markdown-body {
+  line-height: 1.6;
 }
